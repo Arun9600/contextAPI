@@ -1,12 +1,11 @@
-import { useState, useContext } from "react";
-import userContext from "./context/userContext";
+import { useContext, useState } from "react";
+import { UserContext } from "./context/userContext";
 const Form = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const { user, setUser } = useContext(userContext);
+  const { name, setName, password, setPassword } = useContext(UserContext);
+  const [userName, setUserName] = useState("");
   const handleClick = (e) => {
     e.preventDefault();
-    setUser({ name, password });
+    setUserName(name);
   };
   return (
     <>
@@ -33,8 +32,8 @@ const Form = () => {
           <div>
             <input type="submit" onClick={handleClick} />
           </div>
+          {userName ? <p>Your Username is {userName}</p> : ""}
         </form>
-        {user && user.name}
       </div>
     </>
   );

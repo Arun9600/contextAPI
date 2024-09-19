@@ -1,11 +1,11 @@
 import "./App.css";
 import Form from "./Form";
-import ContextProvider from "./context/ContextProvider";
+import { UserContextProvider } from "./context/userContext";
 function App() {
   return (
-    <ContextProvider>
+    <UserContextProvider>
       <Form />
-    </ContextProvider>
+    </UserContextProvider>
   );
 }
 
